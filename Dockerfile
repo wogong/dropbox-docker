@@ -28,6 +28,7 @@ RUN wget -nv -O- https://www.dropbox.com/download?plat=lnx.x86_64 | tar -C /usr/
 
 ADD dropbox.py /usr/local/bin/dropbox.py
 ADD dockerinit.sh /usr/local/bin/
+RUN upgradepkg --install-new /dropbox/proxychains-4.14-x86_64-1_slonly.txz
 RUN chmod +x /usr/local/bin/dropbox.py /usr/local/bin/dockerinit.sh
 
 ENTRYPOINT ["/usr/local/bin/dockerinit.sh"]
