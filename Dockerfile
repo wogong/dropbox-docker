@@ -25,6 +25,7 @@ RUN slackpkg update && \
 
 #RUN wget -nv -O /usr/local/bin/dropbox.py https://www.dropbox.com/download?dl=packages/dropbox.py && chmod +x /usr/local/bin/dropbox.py
 RUN wget -nv -O- https://www.dropbox.com/download?plat=lnx.x86_64 | tar -C /usr/local -zx && chown -Rv root:root /usr/local/.dropbox-dist
+RUN wget -O /dropbox/proxychains-4.14-x86_64-1_slonly.txz https://packages.slackonly.com/pub/packages/14.2-x86_64/network/proxychains/proxychains-4.14-x86_64-1_slonly.txz
 
 ADD dropbox.py /usr/local/bin/dropbox.py
 ADD dockerinit.sh /usr/local/bin/
