@@ -15,5 +15,5 @@ getent passwd ${DROPBOX_USER} 2>&1 > /dev/null || useradd -d /dropbox -g ${DROPB
 #correct some permissions
 chown ${DROPBOX_USER}:${DROPBOX_GROUP} -R /dropbox /dropbox/.dropbox /dropbox/.dropbox-dist /dropbox/Dropbox
 
-su -l ${DROPBOX_USER} -c "/dropbox/.dropbox-dist/dropboxd" &
+su -l ${DROPBOX_USER} -c "proxychains4 -f /dropbox/proxychains.conf /dropbox/.dropbox-dist/dropboxd" &
 while true; do sleep 86400; done
